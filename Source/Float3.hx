@@ -65,6 +65,16 @@ abstract Float3(Float3Data) {
 	public static inline function mul(a:Float3, b:Float3):Float3 {
 		return new Float3(a.x * b.x, a.y * b.y, a.z * b.z);
 	}
+
+	@:op(a / b) @:commutative
+	public static inline function divScalar(a:Float3, b:Float):Float3 {
+		return new Float3(a.x / b, a.y / b, a.z / b);
+	}
+
+	@:op(a / b)
+	public static inline function div(a:Float3, b:Float3):Float3 {
+		return new Float3(a.x / b.x, a.y / b.y, a.z / b.z);
+	}
 }
 
 private class Float3Data {
